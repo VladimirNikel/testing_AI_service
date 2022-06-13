@@ -1,0 +1,53 @@
+version: "3.7"
+services:
+  instance_1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '6000:5000'
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: 3G
+        reservations:
+          cpus: '0.2'
+          memory: 2G
+  instance_2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '6001:5000'
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: 3G
+        reservations:
+          cpus: '0.2'
+          memory: 2G
+  instance_3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '6002:5000'
+    restart: unless-stopped
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.9'
+          memory: 3G
+        reservations:
+          cpus: '0.2'
+          memory: 2G
